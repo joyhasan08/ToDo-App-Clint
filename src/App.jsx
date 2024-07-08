@@ -9,17 +9,16 @@ import TodoCard from './Components/TodoCard'
 function App() {
   const newtodoListData = window.localStorage.getItem('userData')
   const todoData = JSON.parse(newtodoListData)
-  console.log(todoData);
-  console.log(todoData[0].title);
+
 
 
   return (
     <>
       <Navbar />
-      <div className=' flex flex-col justify-end'>
+      <div className=' flex flex-col justify-end m-2'>
         <div>
           {/* outlet */}
-          <div className='max-w-6xl mx-auto bg-base-200 min-h-96 rounded-2xl p-4 m-4 flex gap-4 flex-wrap '>
+          <div className='max-w-6xl mx-auto bg-base-200 min-h-96 rounded-2xl p-4 m-4 flex gap-4 flex-wrap  '>
 
             {/* card */}
             <div className="card bg-base-100 w-64 shadow-xl">
@@ -34,8 +33,9 @@ function App() {
             {/* card end */}
 
             {/* card */}
-            {
+            {todoData ?
               todoData?.map((data, idx) => <TodoCard key={idx} data={data} />)
+              : <></>
             }
             {/* card end */}
 
