@@ -17,29 +17,33 @@ const AddTodoInputBox = () => {
         console.log(name, value);
     }
 
+    // const onSubmit = (event) => {
+    //     event.preventDefault();
+    //     console.log(todoData);
+    //     // Retrieve the existing array from local storage
+    //     let existingData = JSON.parse(window.localStorage.getItem("userData")) || [];
+
+    //     // Ensure existingData is an array
+    //     if (!Array.isArray(existingData)) {
+    //         existingData = [];
+    //     }
+
+    //     // Add the new user data to the array
+    //     const updatedData = [...existingData, todoData];
+
+    //     // Save the updated array back to local storage
+    //     window.localStorage.setItem("userData", JSON.stringify(updatedData));
+
+    //     console.log(updatedData);  // Log the updated data for debugging
+
+    //     // swal("successful!", "Payment information added", "success");
+    //     swal("Good job!", "You clicked the button!", "success")
+    //     window.location.reload()
+    // }
+
     const onSubmit = (event) => {
         event.preventDefault();
         console.log(todoData);
-        // Retrieve the existing array from local storage
-        let existingData = JSON.parse(window.localStorage.getItem("userData")) || [];
-
-        // Ensure existingData is an array
-        if (!Array.isArray(existingData)) {
-            existingData = [];
-        }
-
-        // Add the new user data to the array
-        const updatedData = [...existingData, todoData];
-
-        // Save the updated array back to local storage
-        window.localStorage.setItem("userData", JSON.stringify(updatedData));
-
-        console.log(updatedData);  // Log the updated data for debugging
-
-        // swal("successful!", "Payment information added", "success");
-        swal("Good job!", "You clicked the button!", "success")
-        window.location.reload()
-
 
     }
 
