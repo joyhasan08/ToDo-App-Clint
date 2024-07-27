@@ -11,18 +11,25 @@ const TodoCard = ({ data }) => {
                 <div className="card-body">
 
                     <h2 className="card-title">{data.title}</h2>
+                    <div className='divider'></div>
                     <p>{data.task}</p>
+                    <p className='divider'></p>
                     <div className="card-actions justify-end">
                         {/* <button className="btn btn-sm text-white bg-[#367588]">Done</button> */}
                         <div className=' justify-end flex items-center gap-1  '>
                             <div className="form-control">
                                 <label className="cursor-pointer label">
-
                                     <input type="checkbox" className="checkbox checkbox-accent w-7 h-7  " />
                                 </label>
                             </div>
-                            <button className='w-7 h-7 rounded-lg bg-red-500 flex items-center justify-center hover:bg-red-700'> <span>
-                                <Delete />   </span> </button>
+                            <button className='w-7 h-7 rounded-lg bg-red-500 flex items-center justify-center hover:bg-red-700'>
+                                <span>
+                                    <Delete />
+                                </span>
+                            </button>
+                            <button className='btn btn-sm btn-outline'>
+                                Pending
+                            </button>
                         </div>
                     </div>
                 </div>

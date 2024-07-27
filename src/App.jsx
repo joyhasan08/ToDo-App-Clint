@@ -15,6 +15,9 @@ function App() {
   return (
     <>
       <Navbar />
+      <div>
+        side bar
+      </div>
       <div className=' flex flex-col justify-end m-2'>
         <div>
           {/* outlet */}
