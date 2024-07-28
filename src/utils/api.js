@@ -15,4 +15,11 @@ export const addTodoData = async (data) => {
     return resData.data
 }
 
+export const deleteTodoByID = async (id) => {
+    const deleteData = await fetch.delete(`/todo/delete_todo/${id}`)
+    console.log(deleteData.data);
+    return deleteData.data
+
+}
+
 

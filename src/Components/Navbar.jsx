@@ -3,7 +3,7 @@ import React from 'react';
 const Navbar = () => {
     return (
         <div>
-            <div className="navbar bg-[#367588] text-white">
+            <div className="navbar bg-[#367588] text-white fixed z-10 ">
                 <div className="flex-none">
                     <button className="btn btn-square btn-ghost">
                         <svg

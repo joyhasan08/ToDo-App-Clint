@@ -3,7 +3,7 @@ import swal from "sweetalert";
 import { addTodoData } from "../utils/api";
 
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import useMutationHook from "../hooks/useMutationHook";
+// import useMutationHook from "../hooks/useMutationHook";
 
 
 const initData = {
@@ -25,6 +25,7 @@ const AddTodoInputBox = () => {
         }
 
     })
+
     //alternation way of useMutation
 
     // const { errorMessage, isPending, error, mutate } = useMutationHook(addTodoData, {
@@ -36,10 +37,10 @@ const AddTodoInputBox = () => {
 
     console.log(error);
     console.log(isPending);
+
     const [todoData, setTodoData] = useState(initData)
 
     const handleChange = (event) => {
-
         const { name, value } = event.target
         setTodoData((prev) => ({ ...prev, [name]: value }))
         console.log(name, value);
@@ -69,9 +70,11 @@ const AddTodoInputBox = () => {
                         <textarea onChange={handleChange} name="task" placeholder="Add Todo Here..." className="input input-info input-bordered focus:ring-1 min-h-28" id="" rows="4"></textarea>
                     </div>
                 </div>
+
                 <div className="w-full flex justify-between items-center">
                     <button onClick={onSubmit} className="btn btn-circle bg-green-300 m-2 mx-auto hover:bg-green-400 ">➕</button>
                 </div>
+
             </form>
 
 
