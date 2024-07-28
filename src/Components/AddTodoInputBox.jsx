@@ -1,5 +1,9 @@
 import { useState } from "react";
 import swal from "sweetalert";
+import { addTodoData } from "../utils/api";
+
+import { useMutation, useQueryClient } from "@tanstack/react-query";
+import useMutationHook from "../hooks/useMutationHook";
 
 
 const initData = {
@@ -8,6 +12,28 @@ const initData = {
 }
 
 const AddTodoInputBox = () => {
+    // const queryClient = useQueryClient();
+    // const { mutate, isPending, error, isError, isSuccess } = useMutation({
+    //     mutationFn: addTodoData,
+    //     onSuccess: (res) => {
+    //         console.log(res);
+    //         queryClient.invalidateQueries(['todos'])
+    //     },
+    //     onError: (error) => {
+    //         console.log(error.response.data);
+    //         console.log("error");
+    //     }
+
+    // })
+    const { errorMessage, isPending, error, mutate } = useMutationHook(addTodoData, {
+        key: ['todos'],
+        // onSuccess: (data) => {
+        //     console.log(data);
+        // }
+
+    })
+    console.log(error);
+    console.log(isPending);
     const [todoData, setTodoData] = useState(initData)
 
     const handleChange = (event) => {
@@ -17,33 +43,12 @@ const AddTodoInputBox = () => {
         console.log(name, value);
     }
 
-    // const onSubmit = (event) => {
-    //     event.preventDefault();
-    //     console.log(todoData);
-    //     // Retrieve the existing array from local storage
-    //     let existingData = JSON.parse(window.localStorage.getItem("userData")) || [];
-
-    //     // Ensure existingData is an array
-    //     if (!Array.isArray(existingData)) {
-    //         existingData = [];
-    //     }
-
-    //     // Add the new user data to the array
-    //     const updatedData = [...existingData, todoData];
-
-    //     // Save the updated array back to local storage
-    //     window.localStorage.setItem("userData", JSON.stringify(updatedData));
-
-    //     console.log(updatedData);  // Log the updated data for debugging
-
-    //     // swal("successful!", "Payment information added", "success");
-    //     swal("Good job!", "You clicked the button!", "success")
-    //     window.location.reload()
-    // }
-
     const onSubmit = (event) => {
         event.preventDefault();
-        console.log(todoData);
+        // console.log(todoData);
+        // const resData = await addTodoData(todoData)
+        // console.log(resData);
+        mutate(todoData)
 
     }
 

@@ -1,15 +1,33 @@
 
+import { useEffect, useState } from 'react'
 import './App.css'
 import AddBtn from './Components/AddBtn'
 
 import Navbar from './Components/Navbar'
 import TodoCard from './Components/TodoCard'
+import { getTodoData } from './utils/api'
+import { useQuery } from '@tanstack/react-query'
 
 
 function App() {
-  const newtodoListData = window.localStorage.getItem('userData')
-  const todoData = JSON.parse(newtodoListData)
+  // const newtodoListData = window.localStorage.getItem('userData')
+  // const todoData = JSON.parse(newtodoListData)
 
+  // const [todoData, setTodoData] = useState([]);
+
+  // useEffect(() => {
+  //   getTodoData().then(data => setTodoData(data))
+  // }, [])
+
+  // console.log(todoData);
+
+  const { data: todoData, isLoading, isPending } = useQuery({
+    queryKey: ["todos"],
+    queryFn: getTodoData,
+    initialData: [],
+  })
+
+  console.log(isPending);
 
 
   return (
