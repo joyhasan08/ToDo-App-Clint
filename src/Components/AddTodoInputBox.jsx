@@ -12,26 +12,28 @@ const initData = {
 }
 
 const AddTodoInputBox = () => {
-    // const queryClient = useQueryClient();
-    // const { mutate, isPending, error, isError, isSuccess } = useMutation({
-    //     mutationFn: addTodoData,
-    //     onSuccess: (res) => {
-    //         console.log(res);
-    //         queryClient.invalidateQueries(['todos'])
-    //     },
-    //     onError: (error) => {
-    //         console.log(error.response.data);
-    //         console.log("error");
-    //     }
-
-    // })
-    const { errorMessage, isPending, error, mutate } = useMutationHook(addTodoData, {
-        key: ['todos'],
-        // onSuccess: (data) => {
-        //     console.log(data);
-        // }
+    const queryClient = useQueryClient();
+    const { mutate, isPending, error, isError, isSuccess } = useMutation({
+        mutationFn: addTodoData,
+        onSuccess: (res) => {
+            console.log(res);
+            queryClient.invalidateQueries(['todos'])
+        },
+        onError: (error) => {
+            console.log(error.response.data);
+            console.log("error");
+        }
 
     })
+    //alternation way of useMutation
+
+    // const { errorMessage, isPending, error, mutate } = useMutationHook(addTodoData, {
+    //     key: ['todos'],
+    //     // onSuccess: (data) => {
+    //     //     console.log(data);
+    //     // }
+    // })
+
     console.log(error);
     console.log(isPending);
     const [todoData, setTodoData] = useState(initData)
