@@ -2,6 +2,10 @@ import AddTodoInputBox from "./AddTodoInputBox";
 
 
 const AddBtn = () => {
+    const closeModal = () => {
+        document.getElementById('my_modal_4').close();
+    };
+
     return (
         <div>
 
@@ -24,9 +28,8 @@ const AddBtn = () => {
                     {/* <h3 className="font-bold text-lg my-2">Hello!</h3> */}
 
                     <div className="w-full">
-                        <AddTodoInputBox />
+                        <AddTodoInputBox closeModal={closeModal} />
                     </div>
-
                 </div>
             </dialog>
         </div>

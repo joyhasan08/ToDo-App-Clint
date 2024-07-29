@@ -8,10 +8,10 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 
 const initData = {
     title: '',
-    task: ''
+    task: '',
 }
 
-const AddTodoInputBox = () => {
+const AddTodoInputBox = ({ closeModal }) => {
     const queryClient = useQueryClient();
     const { mutate, isPending, error, isError, isSuccess } = useMutation({
         mutationFn: addTodoData,
@@ -50,7 +50,14 @@ const AddTodoInputBox = () => {
         // console.log(todoData);
         // const resData = await addTodoData(todoData)
         // console.log(resData);
-        mutate(todoData)
+        mutate(todoData, {
+            onSuccess: () => {
+                swal("Success", "Todo Added", "success");
+                setTodoData(initData);
+                closeModal();
+            }
+        });
+
     }
 
     return (
@@ -59,20 +66,27 @@ const AddTodoInputBox = () => {
 
                 <div className="flex flex-col gap-1 ">
                     <label className="font-medium"> Task Title</label>
-                    <input onChange={handleChange} name="title" placeholder="Add Task Title" className="input input-info focus:ring-1" type="text" />
+                    <input value={todoData.title} onChange={handleChange} name="title" placeholder="Add Task Title" className="input input-info focus:ring-1" type="text" />
                 </div>
 
                 <div>
                     <div className="flex flex-col gap-1 ">
                         <label className="font-medium">Task Item :</label>
-                        <textarea onChange={handleChange} name="task" placeholder="Add Todo Here..." className="input input-info input-bordered focus:ring-1 min-h-28" id="" rows="4"></textarea>
+                        <textarea value={todoData.task} onChange={handleChange} name="task" placeholder="Add Todo Here..." className="input input-info input-bordered focus:ring-1 min-h-28" id="" rows="4"></textarea>
                     </div>
                 </div>
+                {/* <dialog id="my_modal_4" className="modal ">
+                    <div className="modal-action">
+                        <form method="dialog">
+                            <button className="btn btn-sm btn-circle bg-red-300 hover:bg-red-400  text-white">close</button>
+                        </form>
+                    </div>
+
+                </dialog> */}
 
                 <div className="w-full flex justify-between items-center">
                     <button onClick={onSubmit} className="btn btn-circle bg-green-300 m-2 mx-auto hover:bg-green-400 ">➕</button>
                 </div>
-
             </form>
 
 
