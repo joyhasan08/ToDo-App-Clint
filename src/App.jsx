@@ -1,8 +1,6 @@
-
-import { useEffect, useState } from 'react'
 import './App.css'
 import AddBtn from './Components/AddBtn'
-
+import DoneContainer from './Components/DoneContainer'
 import Navbar from './Components/Navbar'
 import TodoCard from './Components/TodoCard'
 import { getTodoData } from './utils/api'
@@ -62,6 +60,11 @@ function App() {
 
           </div>
         </div>
+        {/* isDone DoneContainer start*/}
+        <div>
+          <DoneContainer />
+        </div>
+        {/* isDone DoneContainer end*/}
         <div className='flex justify-center my-2'>
           <AddBtn />
         </div>

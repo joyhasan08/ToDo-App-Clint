@@ -23,7 +23,6 @@ const AddTodoInputBox = () => {
             console.log(error.response.data);
             console.log("error");
         }
-
     })
 
     //alternation way of useMutation
@@ -52,7 +51,6 @@ const AddTodoInputBox = () => {
         // const resData = await addTodoData(todoData)
         // console.log(resData);
         mutate(todoData)
-
     }
 
     return (

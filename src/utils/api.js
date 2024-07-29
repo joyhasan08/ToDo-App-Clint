@@ -22,4 +22,16 @@ export const deleteTodoByID = async (id) => {
 
 }
 
+export const isDoneTodoList = async (id) => {
+    const doneData = await fetch.put(`/todo/done_todo/${id}`)
+    console.log(doneData.data);
+    return doneData.data
+}
+
+export const getIsDoneTodoList = async () => {
+    const data = await fetch.get("/todo/is_done")
+    console.log(data.data);
+    return data.data
+}
+
 

@@ -1,7 +1,7 @@
 
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { Delete } from '../assets/icon';
-import { deleteTodoByID } from '../utils/api';
+import { deleteTodoByID, isDoneTodoList } from '../utils/api';
 
 const TodoCard = ({ data }) => {
     const queryClient = useQueryClient();
@@ -13,10 +13,23 @@ const TodoCard = ({ data }) => {
         }
     })
 
+    const { mutate: isdone } = useMutation({
+        mutationFn: isDoneTodoList,
+        onSuccess: (res) => {
+            console.log(res)
+            queryClient.invalidateQueries(['todos'])
+        }
+    })
+
+
     const deletHandler = () => {
         console.log('dlt', data._id);
         mutate(data._id)
+    }
 
+    const isDoneHandler = () => {
+        console.log('done', data._id);
+        isdone(data._id)
     }
 
 
@@ -34,8 +47,8 @@ const TodoCard = ({ data }) => {
                         {/* <button className="btn btn-sm text-white bg-[#367588]">Done</button> */}
                         <div className=' justify-end flex items-center gap-1  '>
 
-                            <button className='btn btn-sm btn-outline'>
-                                Pending
+                            <button onClick={isDoneHandler} className='btn btn-sm btn-outline'>
+                                Done
                             </button>
 
                             <div className="form-control">
