@@ -35,6 +35,12 @@ function App() {
       </div>
       <div>
         side bar
+        <div>side bar content</div>
+        <ul>
+          <li>list 1</li>
+          <li>list 2</li>
+          <li>list 4</li>
+        </ul>
       </div>
       <div className=' flex flex-col justify-end m-2'>
         <div>
