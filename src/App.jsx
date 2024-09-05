@@ -1,6 +1,7 @@
 import './App.css'
 import AddBtn from './Components/AddBtn'
 import DoneContainer from './Components/DoneContainer'
+import Footer from './Components/Footer'
 import Navbar from './Components/Navbar'
 import Test from './Components/Test'
 import TodoCard from './Components/TodoCard'
@@ -71,6 +72,9 @@ function App() {
         </div>
         <div>
           <Test />
+        </div>
+        <div>
+          <Footer />
         </div>
       </div>
     </>
