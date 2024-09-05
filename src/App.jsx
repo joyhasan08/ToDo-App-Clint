@@ -2,6 +2,7 @@ import './App.css'
 import AddBtn from './Components/AddBtn'
 import DoneContainer from './Components/DoneContainer'
 import Navbar from './Components/Navbar'
+import Test from './Components/Test'
 import TodoCard from './Components/TodoCard'
 import { getTodoData } from './utils/api'
 import { useQuery } from '@tanstack/react-query'
@@ -33,15 +34,9 @@ function App() {
       <div className='pb-20'>
         <Navbar />
       </div>
-      <div>
-        side bar
-        <div>side bar content</div>
-        <ul>
-          <li>list 1</li>
-          <li>list 2</li>
-          <li>list 4</li>
-        </ul>
-      </div>
+
+
+
       <div className=' flex flex-col justify-end m-2'>
         <div>
           {/* outlet */}
@@ -73,6 +68,9 @@ function App() {
         {/* isDone DoneContainer end*/}
         <div className='flex justify-center my-2'>
           <AddBtn />
+        </div>
+        <div>
+          <Test />
         </div>
       </div>
     </>
