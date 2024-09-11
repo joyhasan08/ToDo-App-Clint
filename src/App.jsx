@@ -2,6 +2,7 @@ import './App.css'
 import AddBtn from './Components/AddBtn'
 import DoneContainer from './Components/DoneContainer'
 import Footer from './Components/Footer'
+import GitButton from './Components/GitButton/GitButton'
 import Navbar from './Components/Navbar'
 import Test from './Components/Test'
 import TodoCard from './Components/TodoCard'
@@ -35,7 +36,10 @@ function App() {
       <div className='pb-20'>
         <Navbar />
       </div>
-
+      <div className='p-4 flex text-center gap-4 items-center justify-center max-w-2xl mx-auto font-thin font-mono'>
+        <p> Full Project Repo : </p>
+        <a href="https://github.com/joyhasan08/ToDo-App-Clint"> <GitButton /></a>
+      </div>
 
 
       <div className=' flex flex-col justify-end m-2'>
@@ -70,7 +74,7 @@ function App() {
         <div className='flex justify-center my-2'>
           <AddBtn />
         </div>
-        <div>
+        <div className='mt-20'>
           <Test />
         </div>
         <div>
